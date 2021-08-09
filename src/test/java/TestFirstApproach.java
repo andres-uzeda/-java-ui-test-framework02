@@ -41,11 +41,6 @@ public class TestFirstApproach {
     @Test
     public void SecondTest(){
         mainPage.SelectCompleteWebFormMenu().FillUpForm(name, email);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @AfterTest
