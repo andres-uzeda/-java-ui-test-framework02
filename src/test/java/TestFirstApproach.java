@@ -32,6 +32,7 @@ public class TestFirstApproach {
         }while (name.equals(""));
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://formy-project.herokuapp.com/");
