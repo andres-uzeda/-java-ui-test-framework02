@@ -1,5 +1,6 @@
 package POM;
 
+import Utils.Util;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +13,8 @@ public class WebFormPage {
     private By educationLevelRadioButton = By.cssSelector("#radio-button-2");
     private By sexCheckBox = By.cssSelector("#checkbox-1");
     private By yearInput = By.cssSelector("#datepicker");
+    private By submitButton = By.cssSelector(".btn-lg");
+    private By submittingDivMessage = By.cssSelector(".alert-success");
 
     public WebFormPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -23,6 +26,11 @@ public class WebFormPage {
         webDriver.findElement(educationLevelRadioButton).click();
         webDriver.findElement(sexCheckBox).click();
         webDriver.findElement(yearInput).sendKeys("10/10/1990");
+        webDriver.findElement(submitButton).click();
         return new WebFormPage(webDriver);
+    }
+    public String VerifyThatAFormWasSent(){
+        Util.WaitElement(submittingDivMessage, this.webDriver);
+        return webDriver.findElement(submittingDivMessage).getText();
     }
 }

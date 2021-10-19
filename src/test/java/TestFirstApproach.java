@@ -5,6 +5,7 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -40,8 +41,9 @@ public class TestFirstApproach {
     }
 
     @Test
-    public void SecondTest(){
-        mainPage.SelectCompleteWebFormMenu().FillUpForm(name, email);
+    public void VerifyThatAFormWasFilledUp(){
+        String actual = mainPage.SelectCompleteWebFormMenu().FillUpForm(name, email).VerifyThatAFormWasSent();
+        Assert.assertEquals(actual,"The form was successfully submitted!");
     }
 
     @AfterTest
