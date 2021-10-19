@@ -3,3 +3,4 @@ target
 pom1.xml
 aws.properties
 .idea
+testData
